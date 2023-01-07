@@ -1,24 +1,21 @@
 {
-    "name": "cookieclicker2mp4_theme_manager",
-    "version": "1.0.0",
-
-    "description": "A Theme Manager for Cookieclicker2.mp4",
-    "displayName": "Cookieclicker2.mp4 Theme Manager",
-    "unity": "2021.3",
-
-    "unityRelease": "16f1",
-
-    "dependencies": {
-        "com.unity.textmeshpro": "3.0.6",
-        "com.unity.probuilder": "4.5.2",
-        "com.unity.progrids": "3.0.3-preview.6",
-        "com.unity.feature.2d": "1.0.0",
-        "com.unity.render-pipelines.universal": "12.1.8"
-    },
-
-    "author": {
-        "name": "Raidenxd2",
-        "email": "",
-        "url": "https://github.com/Raidenxd2/Cookieclicker2.mp4-Theme-Manager"
-    }
+  "name": "raidenxd2.cookieclicker2mp4_theme_manager",
+  "version": "1.0.0",
+  "description": "A Theme Manager for Cookieclicker2.mp4",
+  "displayName": "Cookieclicker2.mp4 Theme Manager",
+  "unity": "2021.3",
+  "unityRelease": "16f1",
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.6",
+    "com.unity.probuilder": "4.5.2",
+    "com.unity.progrids": "3.0.3-preview.6",
+    "com.unity.feature.2d": "1.0.0",
+    "com.unity.render-pipelines.universal": "12.1.8",
+    "com.unity.nuget.newtonsoft-json": "3.0.2"
+  },
+  "author": {
+    "name": "Raidenxd2",
+    "email": "",
+    "url": "https://github.com/Raidenxd2/Cookieclicker2.mp4-Theme-Manager"
+  }
 }

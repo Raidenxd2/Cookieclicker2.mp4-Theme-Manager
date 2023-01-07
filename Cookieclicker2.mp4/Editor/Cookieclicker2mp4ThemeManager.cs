@@ -27,6 +27,8 @@ public class Cookieclicker2mp4ThemeManager
         {
             BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.None, EditorUserBuildSettings.activeBuildTarget);
             AssetDatabase.Refresh();
+            File.Delete("Assets/AssetBundles/customTheme.assets");
+            File.Move("Assets/AssetBundles/customTheme", "Assets/AssetBundles/customTheme.assets");
             Debug.Log("Built Theme");
         }
         catch(Exception e)

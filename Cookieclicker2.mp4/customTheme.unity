@@ -596,7 +596,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 85d84364d0e1816468a9c59e652f2868, type: 2}
+  - {fileID: 2100000, guid: 4ae6c48c96b98a24db638b31b193c54f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -729,7 +729,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5314424363596930967}
-  - component: {fileID: 7772615637773791347}
+  - component: {fileID: 5314424363596930968}
   m_Layer: 0
   m_Name: ---customTheme---
   m_TagString: Untagged
@@ -756,6 +756,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5314424363596930968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314424363596930960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8880c3b822ba8409421ea8848867ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RendererInfo: []
+  m_Lightmaps: []
+  m_LightmapsDir: []
+  m_ShadowMasks: []
+  m_LightInfo: []
 --- !u!4 &5314424363676248780
 Transform:
   m_ObjectHideFlags: 0
@@ -989,50 +1006,6 @@ Transform:
   m_Father: {fileID: 4160361146818144116}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7772615637773791347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5314424363596930960}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1792507ad4f81e74cbf591bf0b35f00a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RendererInfo:
-  - renderer: {fileID: 797021157366045661}
-    lightmapIndex: 0
-    lightmapOffsetScale: {x: 0.09487226, y: 0.09487226, z: 0.88016856, w: -0.0065502}
-  - renderer: {fileID: 0}
-    lightmapIndex: 0
-    lightmapOffsetScale: {x: 0.30892596, y: 0.30892596, z: -0.0012529315, w: -0.0012529315}
-  - renderer: {fileID: 0}
-    lightmapIndex: 0
-    lightmapOffsetScale: {x: 0.30892596, y: 0.30892596, z: 0.30734083, w: -0.0012529315}
-  - renderer: {fileID: 0}
-    lightmapIndex: 0
-    lightmapOffsetScale: {x: 0.246944, y: 0.246944, z: -0.0010015472, w: 0.37822288}
-  - renderer: {fileID: 0}
-    lightmapIndex: 0
-    lightmapOffsetScale: {x: 0.246944, y: 0.246944, z: -0.0010015472, w: 0.54038835}
-  - renderer: {fileID: 0}
-    lightmapIndex: 0
-    lightmapOffsetScale: {x: 0.26957232, y: 0.26957232, z: 0.6160942, w: -0.0010933223}
-  - renderer: {fileID: 0}
-    lightmapIndex: 0
-    lightmapOffsetScale: {x: 0.26957232, y: 0.26957232, z: -0.0010933223, w: 0.20128481}
-  m_Lightmaps:
-  - {fileID: 2800000, guid: 462afac108949504084e1b1c6f425cd6, type: 3}
-  m_LightmapsDir:
-  - {fileID: 2800000, guid: 03feb17c8ee40e94c9ba947286494582, type: 3}
-  m_ShadowMasks:
-  - {fileID: 0}
-  m_LightInfo:
-  - light: {fileID: 0}
-    lightmapBaketype: 2
-    mixedLightingMode: 2
 --- !u!33 &8380713496847431898
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using System.IO;
+using System;
 
 public class ThemeManagerGUI : EditorWindow
 {
@@ -47,8 +48,15 @@ public class ThemeManagerGUI : EditorWindow
         GUILayout.EndHorizontal();
         if (GUILayout.Button("Create new Scene"))
         {
-            // SceneTemplateService.Instantiate(new SceneTemplateAsset(), false, EditorUtility.OpenFilePanel("Save Scene file...", "", ".unity"));
-            File.Copy("Packages/cookieclicker2mp4_theme_manager/Cookieclicker2.mp4/customTheme.unity", "Assets/" + sceneName + ".unity");
+            try
+            {
+                File.Copy("Packages/cookieclicker2mp4_theme_manager/Cookieclicker2.mp4/customTheme.unity", "Assets/" + sceneName + ".unity");
+            }
+            catch (Exception ex)
+            {
+                EditorUtility.DisplayDialog("Error!", "An error occured while creating a new Scene: " + ex, "OK", "");
+                return;
+            }
             AssetDatabase.Refresh();
             if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
             {
@@ -64,6 +72,10 @@ public class ThemeManagerGUI : EditorWindow
 
     void BuildTab()
     {
+        if (GUILayout.Button("Create mod.json"))
+        {
+            ModJSONCreator.ShowWindow();
+        }
         if (GUILayout.Button("Build AssetBundle"))
         {
             if (EditorUtility.DisplayDialog("Question", "Are you sure you want to build the AssetBundle?", "Yes", "No"))
