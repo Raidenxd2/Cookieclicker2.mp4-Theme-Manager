@@ -56,7 +56,7 @@ public class ThemeManagerGUI : EditorWindow
             }
             else
             {
-                LoggerSystem.Logger.Log("User canceled the save scene request.", LoggerSystem.LogTypes.Error);
+                // LoggerSystem.Logger.Log("User canceled the save scene request.", LoggerSystem.LogTypes.Error);
             }
             
         }
