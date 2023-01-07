@@ -50,7 +50,7 @@ public class ThemeManagerGUI : EditorWindow
         {
             try
             {
-                File.Copy("Packages/cookieclicker2mp4_theme_manager/Cookieclicker2.mp4/customTheme.unity", "Assets/" + sceneName + ".unity");
+                File.Copy("Packages/raidenxd2.cookieclicker2mp4_theme_manager/Cookieclicker2.mp4/customTheme.unity", "Assets/" + sceneName + ".unity");
             }
             catch (Exception ex)
             {
