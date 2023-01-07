@@ -1,0 +1,10 @@
+{
+    "name": "cookieclicker2mp4_theme_manager",
+    "version": "1.0.0",
+
+    "description": "A Theme Manager for Cookieclicker2.mp4",
+    "displayName": "Cookieclicker2.mp4 Theme Manager",
+    "unity": "2021.3",
+
+    "unityRelease": "16f1"
+}
