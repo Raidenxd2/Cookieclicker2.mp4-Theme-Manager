@@ -26,9 +26,10 @@ public class Cookieclicker2mp4ThemeManager
         try
         {
             BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows);
-            AssetDatabase.Refresh();
             File.Delete("Assets/AssetBundles/Windows/customTheme.assets");
+            File.Delete("Assets/AssetBundles/Windows/customTheme_Windows.assets");
             File.Move("Assets/AssetBundles/Windows/customTheme", "Assets/AssetBundles/Windows/customTheme_Windows.assets");
+            AssetDatabase.Refresh();
             Debug.Log("Built Theme");
         }
         catch(Exception e)
@@ -47,9 +48,10 @@ public class Cookieclicker2mp4ThemeManager
         try
         {
             BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.None, BuildTarget.StandaloneOSX);
-            AssetDatabase.Refresh();
             File.Delete("Assets/AssetBundles/Mac/customTheme.assets");
+            File.Delete("Assets/AssetBundles/Mac/customTheme_Mac.assets");
             File.Move("Assets/AssetBundles/Mac/customTheme", "Assets/AssetBundles/Mac/customTheme_Mac.assets");
+            AssetDatabase.Refresh();
             Debug.Log("Built Theme");
         }
         catch(Exception e)
@@ -68,9 +70,10 @@ public class Cookieclicker2mp4ThemeManager
         try
         {
             BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.None, BuildTarget.StandaloneLinux64);
-            AssetDatabase.Refresh();
             File.Delete("Assets/AssetBundles/Linux/customTheme.assets");
+            File.Delete("Assets/AssetBundles/Linux/customTheme_Linux.assets");
             File.Move("Assets/AssetBundles/Linux/customTheme", "Assets/AssetBundles/Linux/customTheme_Linux.assets");
+            AssetDatabase.Refresh();
             Debug.Log("Built Theme");
         }
         catch(Exception e)
@@ -89,9 +92,10 @@ public class Cookieclicker2mp4ThemeManager
         try
         {
             BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.None, BuildTarget.Android);
-            AssetDatabase.Refresh();
             File.Delete("Assets/AssetBundles/Android/customTheme.assets");
+            File.Delete("Assets/AssetBundles/Android/customTheme_Android.assets");
             File.Move("Assets/AssetBundles/Android/customTheme", "Assets/AssetBundles/Android/customTheme_Android.assets");
+            AssetDatabase.Refresh();
             Debug.Log("Built Theme");
         }
         catch(Exception e)
