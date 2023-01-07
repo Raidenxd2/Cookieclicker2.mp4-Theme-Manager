@@ -115,7 +115,7 @@ public class ModJSONCreator : EditorWindow
         }
         if (GUILayout.Button("Load"))
         {
-            if (EditorUtility.DisplayDialog("", "Not Implemented yet!", "OK", ""))
+            if (EditorUtility.DisplayDialog("", "Not Implemented Yet!", "OK", ""))
             {
 
             }
