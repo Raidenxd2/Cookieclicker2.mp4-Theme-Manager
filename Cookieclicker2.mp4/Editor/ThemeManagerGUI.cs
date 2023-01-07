@@ -76,11 +76,32 @@ public class ThemeManagerGUI : EditorWindow
         {
             ModJSONCreator.ShowWindow();
         }
-        if (GUILayout.Button("Build AssetBundle"))
+        if (GUILayout.Button("Build AssetBundle for Windows"))
         {
             if (EditorUtility.DisplayDialog("Question", "Are you sure you want to build the AssetBundle?", "Yes", "No"))
             {
-                EditorApplication.ExecuteMenuItem("Cookieclicker2.mp4 Theme Manager/Build AssetBundle");
+                EditorApplication.ExecuteMenuItem("Cookieclicker2.mp4 Theme Manager/Build AssetBundle (Windows)");
+            }
+        }
+        if (GUILayout.Button("Build AssetBundle for Mac"))
+        {
+            if (EditorUtility.DisplayDialog("Question", "Are you sure you want to build the AssetBundle?", "Yes", "No"))
+            {
+                EditorApplication.ExecuteMenuItem("Cookieclicker2.mp4 Theme Manager/Build AssetBundle (Mac)");
+            }
+        }
+        if (GUILayout.Button("Build AssetBundle for Linux"))
+        {
+            if (EditorUtility.DisplayDialog("Question", "Are you sure you want to build the AssetBundle?", "Yes", "No"))
+            {
+                EditorApplication.ExecuteMenuItem("Cookieclicker2.mp4 Theme Manager/Build AssetBundle (Linux)");
+            }
+        }
+        if (GUILayout.Button("Build AssetBundle for Android"))
+        {
+            if (EditorUtility.DisplayDialog("Question", "Are you sure you want to build the AssetBundle?", "Yes", "No"))
+            {
+                EditorApplication.ExecuteMenuItem("Cookieclicker2.mp4 Theme Manager/Build AssetBundle (Android)");
             }
         }
         if (GUILayout.Button("Bake Prefab Lightmaps"))
