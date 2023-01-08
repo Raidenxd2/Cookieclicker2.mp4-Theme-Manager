@@ -128,7 +128,7 @@ public class ThemeManagerGUI : EditorWindow
     {
         if (GUILayout.Button("Setup Project Render API Settings..."))
         {
-            if (EditorUtility.DisplayDialog("Question", "Are you sure you want to setup the project Render API? This may require a restart of Unity.", "Yes", "No"))
+            if (EditorUtility.DisplayDialog("Question", "Are you sure you want to setup the project Render API? This will require a restart of Unity.", "Yes", "No"))
             {
                 EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 0);
                 PlayerSettings.SetUseDefaultGraphicsAPIs(BuildTarget.Android, false);
@@ -155,7 +155,10 @@ public class ThemeManagerGUI : EditorWindow
                 PlayerSettings.SetGraphicsAPIs(BuildTarget.StandaloneWindows, new [] { GraphicsDeviceType.Vulkan, GraphicsDeviceType.Direct3D12, GraphicsDeviceType.Direct3D11, GraphicsDeviceType.OpenGLCore });
 
                 EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 80);
-                EditorUtility.ClearProgressBar();
+                EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
+                EditorApplication.OpenProject(Directory.GetCurrentDirectory());
+                EditorUtility.DisplayProgressBar("Please wait...", "", 0);
+                // EditorUtility.ClearProgressBar();
             }
         }
         if (GUILayout.Button("Asset Bundle Browser"))
