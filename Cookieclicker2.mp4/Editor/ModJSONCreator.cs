@@ -24,8 +24,8 @@ public class ModJSONCreator : EditorWindow
     public static void ShowWindow()
     {
         ModJSONCreator MJSONC = (ModJSONCreator)GetWindow(typeof(ModJSONCreator), false, "mod.json Creator");
-        MJSONC.minSize = new Vector2(500, 200);
-        MJSONC.maxSize = new Vector2(500, 200);
+        MJSONC.minSize = new Vector2(500, 210);
+        MJSONC.maxSize = new Vector2(500, 210);
     }
 
     void OnGUI()
@@ -115,9 +115,25 @@ public class ModJSONCreator : EditorWindow
         }
         if (GUILayout.Button("Load"))
         {
-            if (EditorUtility.DisplayDialog("", "Not Implemented Yet!", "OK", ""))
+            string file = EditorUtility.OpenFilePanel("Select mod.json", "", "json");
+            if (file == "")
             {
 
+            }
+            else
+            {
+                StreamReader reader = new StreamReader(file); 
+                var themeModJSON = JsonConvert.DeserializeObject<ThemeModJSON>(reader.ReadToEnd());
+                modName = themeModJSON.mod_name;
+                modVersion = themeModJSON.mod_version;
+                modType = themeModJSON.mod_type;
+                themeName = themeModJSON.theme_name;
+                customSkyEnabled = themeModJSON.theme_customsky_enabled;
+                customSkyMatName = themeModJSON.theme_customsky_name;
+                android_support = themeModJSON.android_support;
+                windows_support = themeModJSON.windows_support;
+                mac_support = themeModJSON.mac_support;
+                linux_support = themeModJSON.linux_support;
             }
         }
         GUILayout.EndHorizontal();

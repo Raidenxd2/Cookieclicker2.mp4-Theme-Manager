@@ -104,6 +104,16 @@ public class ThemeManagerGUI : EditorWindow
                 EditorApplication.ExecuteMenuItem("Cookieclicker2.mp4 Theme Manager/Build AssetBundle (Android)");
             }
         }
+        if (GUILayout.Button("Build AssetBundle for all"))
+        {
+            if (EditorUtility.DisplayDialog("Question", "Are you sure you want to build the AssetBundle?", "Yes", "No"))
+            {
+                EditorApplication.ExecuteMenuItem("Cookieclicker2.mp4 Theme Manager/Build AssetBundle (Android)");
+                EditorApplication.ExecuteMenuItem("Cookieclicker2.mp4 Theme Manager/Build AssetBundle (Linux)");
+                EditorApplication.ExecuteMenuItem("Cookieclicker2.mp4 Theme Manager/Build AssetBundle (Mac)");
+                EditorApplication.ExecuteMenuItem("Cookieclicker2.mp4 Theme Manager/Build AssetBundle (Windows)");
+            }
+        }
         if (GUILayout.Button("Bake Prefab Lightmaps"))
         {
             if (EditorUtility.DisplayDialog("Question", "Are you sure you want to Bake Prefab Lightmaps?", "Yes", "No"))
