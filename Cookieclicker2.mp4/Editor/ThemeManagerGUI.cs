@@ -9,7 +9,6 @@ using UnityEngine.Rendering;
 
 public class ThemeManagerGUI : EditorWindow
 {
-
     public int tabs = 3;
     string[] tabOptions = new string[] {"Create", "Build", "Other"};
 
@@ -22,7 +21,6 @@ public class ThemeManagerGUI : EditorWindow
         TMGUI.minSize = new Vector2(300, 200);
         TMGUI.maxSize = new Vector2(300, 200);
     }
-
 
     void OnGUI()
     {
@@ -126,46 +124,29 @@ public class ThemeManagerGUI : EditorWindow
     
     void OtherTab()
     {
+        if (GUILayout.Button("Setup Project..."))
+        {
+            if (EditorUtility.DisplayDialog("Question", "Are you sure you want to setup this project for use with creating Cookieclicker2.mp4 Custom Themes? This will require a restart of Unity.", "Yes", "No"))
+            {
+                PlayerSettings.colorSpace = ColorSpace.Linear;
+                File.Copy("Packages/raidenxd2.cookieclicker2mp4_theme_manager/Cookieclicker2.mp4/Editor/PresetManager.asset", "ProjectSettings/PresetManager.asset", true);
+                AssetDatabase.Refresh();
+                SetupLayers();
+                SetupRenderAPI();
+            }
+        }
         if (GUILayout.Button("Setup Project Render API Settings..."))
         {
             if (EditorUtility.DisplayDialog("Question", "Are you sure you want to setup the project Render API? This will require a restart of Unity.", "Yes", "No"))
             {
-                EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 0);
-                PlayerSettings.SetUseDefaultGraphicsAPIs(BuildTarget.Android, false);
-
-                EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 10);
-                PlayerSettings.SetUseDefaultGraphicsAPIs(BuildTarget.StandaloneWindows, false);
-
-                EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 20);
-                PlayerSettings.SetUseDefaultGraphicsAPIs(BuildTarget.StandaloneOSX, false);
-
-                EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 30);
-                PlayerSettings.SetUseDefaultGraphicsAPIs(BuildTarget.StandaloneLinux64, false);
-
-                EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 40);
-                PlayerSettings.SetGraphicsAPIs(BuildTarget.Android, new [] { GraphicsDeviceType.Vulkan, GraphicsDeviceType.OpenGLES3, GraphicsDeviceType.OpenGLES2 });
-
-                EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 50);
-                PlayerSettings.SetGraphicsAPIs(BuildTarget.StandaloneLinux64, new [] { GraphicsDeviceType.OpenGLCore, GraphicsDeviceType.Vulkan });
-
-                EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 60);
-                PlayerSettings.SetGraphicsAPIs(BuildTarget.StandaloneOSX, new [] { GraphicsDeviceType.Metal, GraphicsDeviceType.OpenGLCore });
-
-                EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 70);
-                PlayerSettings.SetGraphicsAPIs(BuildTarget.StandaloneWindows, new [] { GraphicsDeviceType.Vulkan, GraphicsDeviceType.Direct3D12, GraphicsDeviceType.Direct3D11, GraphicsDeviceType.OpenGLCore });
-
-                EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 80);
-                EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
-                EditorUtility.DisplayProgressBar("Please wait...", "", 0);
-                EditorApplication.OpenProject(Directory.GetCurrentDirectory());
+                SetupRenderAPI();
             }
         }
         if (GUILayout.Button("Setup Layers And Tags..."))
         {
             if (EditorUtility.DisplayDialog("Question", "Are you sure you want to setup layers and tags? This will overwrite your existing layers and tags and may require restart of Unity.", "Yes", "No"))
             {
-                File.Copy("Packages/raidenxd2.cookieclicker2mp4_theme_manager/Cookieclicker2.mp4/Editor/TagManager.asset", "ProjectSettings/TagManager.asset", true);
-                AssetDatabase.Refresh();
+                SetupLayers();
             }
         }
         if (GUILayout.Button("Asset Bundle Browser"))
@@ -179,5 +160,44 @@ public class ThemeManagerGUI : EditorWindow
                 EditorApplication.ExecuteMenuItem("Window/Easy Quest Switch");
             }
         }
+    }
+
+    void SetupRenderAPI()
+    {
+        EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 0);
+        PlayerSettings.SetUseDefaultGraphicsAPIs(BuildTarget.Android, false);
+
+        EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 10);
+        PlayerSettings.SetUseDefaultGraphicsAPIs(BuildTarget.StandaloneWindows, false);
+
+        EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 20);
+        PlayerSettings.SetUseDefaultGraphicsAPIs(BuildTarget.StandaloneOSX, false);
+
+        EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 30);
+        PlayerSettings.SetUseDefaultGraphicsAPIs(BuildTarget.StandaloneLinux64, false);
+
+        EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 40);
+        PlayerSettings.SetGraphicsAPIs(BuildTarget.Android, new [] { GraphicsDeviceType.Vulkan, GraphicsDeviceType.OpenGLES3, GraphicsDeviceType.OpenGLES2 });
+
+        EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 50);
+        PlayerSettings.SetGraphicsAPIs(BuildTarget.StandaloneLinux64, new [] { GraphicsDeviceType.OpenGLCore, GraphicsDeviceType.Vulkan });
+
+        EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 60);
+        PlayerSettings.SetGraphicsAPIs(BuildTarget.StandaloneOSX, new [] { GraphicsDeviceType.Metal, GraphicsDeviceType.OpenGLCore });
+
+        EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 70);
+        PlayerSettings.SetGraphicsAPIs(BuildTarget.StandaloneWindows, new [] { GraphicsDeviceType.Vulkan, GraphicsDeviceType.Direct3D12, GraphicsDeviceType.Direct3D11, GraphicsDeviceType.OpenGLCore });
+
+        EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 80);
+        EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
+        EditorUtility.ClearProgressBar();
+        EditorUtility.DisplayProgressBar("Please wait...", "", 0);
+        EditorApplication.OpenProject(Directory.GetCurrentDirectory());
+    }
+
+    void SetupLayers()
+    {
+        File.Copy("Packages/raidenxd2.cookieclicker2mp4_theme_manager/Cookieclicker2.mp4/Editor/TagManager.asset", "ProjectSettings/TagManager.asset", true);
+        AssetDatabase.Refresh();
     }
 }
