@@ -129,5 +129,12 @@ public class ThemeManagerGUI : EditorWindow
         {
             EditorApplication.ExecuteMenuItem("Window/AssetBundle Browser");
         }
+        if (File.Exists("Assets/EasyQuestSwitch/EQS_Data.cs"))
+        {
+            if (GUILayout.Button("Easy Quest Switch"))
+            {
+                EditorApplication.ExecuteMenuItem("Window/Easy Quest Switch");
+            }
+        }
     }
 }
