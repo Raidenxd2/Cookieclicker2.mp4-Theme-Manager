@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using System.IO;
 using System;
+using UnityEngine.Rendering;
 
 public class ThemeManagerGUI : EditorWindow
 {
@@ -125,6 +126,38 @@ public class ThemeManagerGUI : EditorWindow
     
     void OtherTab()
     {
+        if (GUILayout.Button("Setup Project Render API Settings..."))
+        {
+            if (EditorUtility.DisplayDialog("Question", "Are you sure you want to setup the project Render API? This may require a restart of Unity.", "Yes", "No"))
+            {
+                EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 0);
+                PlayerSettings.SetUseDefaultGraphicsAPIs(BuildTarget.Android, false);
+
+                EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 10);
+                PlayerSettings.SetUseDefaultGraphicsAPIs(BuildTarget.StandaloneWindows, false);
+
+                EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 20);
+                PlayerSettings.SetUseDefaultGraphicsAPIs(BuildTarget.StandaloneOSX, false);
+
+                EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 30);
+                PlayerSettings.SetUseDefaultGraphicsAPIs(BuildTarget.StandaloneLinux64, false);
+
+                EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 40);
+                PlayerSettings.SetGraphicsAPIs(BuildTarget.Android, new [] { GraphicsDeviceType.Vulkan, GraphicsDeviceType.OpenGLES3, GraphicsDeviceType.OpenGLES2 });
+
+                EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 50);
+                PlayerSettings.SetGraphicsAPIs(BuildTarget.StandaloneLinux64, new [] { GraphicsDeviceType.OpenGLCore, GraphicsDeviceType.Vulkan });
+
+                EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 60);
+                PlayerSettings.SetGraphicsAPIs(BuildTarget.StandaloneOSX, new [] { GraphicsDeviceType.Metal, GraphicsDeviceType.OpenGLCore });
+
+                EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 70);
+                PlayerSettings.SetGraphicsAPIs(BuildTarget.StandaloneWindows, new [] { GraphicsDeviceType.Vulkan, GraphicsDeviceType.Direct3D12, GraphicsDeviceType.Direct3D11, GraphicsDeviceType.OpenGLCore });
+
+                EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 80);
+                EditorUtility.ClearProgressBar();
+            }
+        }
         if (GUILayout.Button("Asset Bundle Browser"))
         {
             EditorApplication.ExecuteMenuItem("Window/AssetBundle Browser");
