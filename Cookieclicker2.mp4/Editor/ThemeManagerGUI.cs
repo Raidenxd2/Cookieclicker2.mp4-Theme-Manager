@@ -130,6 +130,7 @@ public class ThemeManagerGUI : EditorWindow
             {
                 PlayerSettings.colorSpace = ColorSpace.Linear;
                 File.Copy("Packages/raidenxd2.cookieclicker2mp4_theme_manager/Cookieclicker2.mp4/Editor/PresetManager.asset", "ProjectSettings/PresetManager.asset", true);
+                File.Copy("Packages/raidenxd2.cookieclicker2mp4_theme_manager/Cookieclicker2.mp4/Editor/GraphicsSettings.asset", "ProjectSettings/GraphicsSettings.asset", true);
                 AssetDatabase.Refresh();
                 SetupLayers();
                 SetupRenderAPI();
