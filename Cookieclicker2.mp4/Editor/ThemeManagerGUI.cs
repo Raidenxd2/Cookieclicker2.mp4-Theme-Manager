@@ -156,9 +156,16 @@ public class ThemeManagerGUI : EditorWindow
 
                 EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 80);
                 EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
-                EditorApplication.OpenProject(Directory.GetCurrentDirectory());
                 EditorUtility.DisplayProgressBar("Please wait...", "", 0);
-                // EditorUtility.ClearProgressBar();
+                EditorApplication.OpenProject(Directory.GetCurrentDirectory());
+            }
+        }
+        if (GUILayout.Button("Setup Layers And Tags..."))
+        {
+            if (EditorUtility.DisplayDialog("Question", "Are you sure you want to setup layers and tags? This will overwrite your existing layers and tags and may require restart of Unity.", "Yes", "No"))
+            {
+                File.Copy("Packages/raidenxd2.cookieclicker2mp4_theme_manager/Cookieclicker2.mp4/Editor/TagManager.asset", "ProjectSettings/TagManager.asset", true);
+                AssetDatabase.Refresh();
             }
         }
         if (GUILayout.Button("Asset Bundle Browser"))
