@@ -178,7 +178,7 @@ public class ThemeManagerGUI : EditorWindow
         PlayerSettings.SetUseDefaultGraphicsAPIs(BuildTarget.StandaloneLinux64, false);
 
         EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 40);
-        PlayerSettings.SetGraphicsAPIs(BuildTarget.Android, new [] { GraphicsDeviceType.Vulkan, GraphicsDeviceType.OpenGLES3, GraphicsDeviceType.OpenGLES2 });
+        PlayerSettings.SetGraphicsAPIs(BuildTarget.Android, new [] { GraphicsDeviceType.Vulkan, GraphicsDeviceType.OpenGLES3 });
 
         EditorUtility.DisplayProgressBar("Cookieclicker2.mp4 Theme Manager", "Setting Graphics APIs...", 50);
         PlayerSettings.SetGraphicsAPIs(BuildTarget.StandaloneLinux64, new [] { GraphicsDeviceType.OpenGLCore, GraphicsDeviceType.Vulkan });
